@@ -1,4 +1,4 @@
-*Background*
+## Background
 
 **Goal**
 
@@ -20,7 +20,7 @@ You need to implement an agent and deploy it on every worker node, so the plugin
 
 Note: You can’t recreate the pod or container to apply resources limit. You must do it at runtime.
 
-*Design*
+## Design
 
 **Initial Thoughts**
 
@@ -56,7 +56,7 @@ spec:
            - NET_ADMIN
 ```
 
-**Implementation**
+## Implementation
 
 The implementation will be divided into two parts: the agent, and the `kubectl` plugin. I have opted to write both in Go as it is what I am most comfortable with.
 
@@ -64,7 +64,7 @@ In order for the agent to run the native docker commands needed on the container
 
 Due to the design of the agent, the plugin will be relatively simple. The plugin will need to identify the node on which the pod is running, and POST the command and its arguments to the agent's HTTP endpoint. The plugin should also display information on whether the command was successful, and if not, show the output of the command for debugging purposes.
 
-*Usage*
+**Usage**
 
 First we need to compile the two binaries:
 
